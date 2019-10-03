@@ -14,7 +14,7 @@ def main():
         if user_input == '':
             break
         Line = user_input.replace('\n', '')
-        pattern = r'(^[ \t]*a[ \t]+\"{1}([ \t]*[a-zA-Z \t]+[ \t]*)+\"{1}[ \t]+(\({1}([ \t]*[-+]?[0-9]+[ \t]*)\,{1}([ \t]*[-+]?[0-9]+[ \t]*)\){1})+[ \t]*$)|(^[ \t]*c[ \t]+\"{1}([ \t]*[a-zA-Z \t]+[ \t]*)+\"{1}[ \t]+(\({1}([ \t]*[-+]?[0-9]+[ \t]*)\,{1}([ \t]*[-+]?[0-9]+[ \t]*)\){1})+[ \t]*$)|(^[ \t]*r[ \t]+\"{1}([ \t]*[a-zA-Z \t]+[ \t]*)+\"{1}[ \t]*$)|(^[ \t]*g[ \t]*$)'
+        pattern = r'(^[ \t]*a[ \t]+\"{1}([ \t]*[a-zA-Z \t]+[ \t]*)+\"{1}[ \t]+(\({1}([ \t]*[-+]?[0-9]+[ \t]*)\,{1}([ \t]*[-+]?[0-9]+[ \t]*)\){1} *)+[ \t]*$)|(^[ \t]*c[ \t]+\"{1}([ \t]*[a-zA-Z \t]+[ \t]*)+\"{1}[ \t]+(\({1}([ \t]*[-+]?[0-9]+[ \t]*)\,{1}([ \t]*[-+]?[0-9]+[ \t]*)\){1} *)+[ \t]*$)|(^[ \t]*r[ \t]+\"{1}([ \t]*[a-zA-Z \t]+[ \t]*)+\"{1}[ \t]*$)|(^[ \t]*g[ \t]*$)'
         r = re.compile(pattern)
         if not (r.match(Line)):
             sys.stderr.write("Error: Non valid input, please enter a right command\n")
@@ -53,12 +53,9 @@ def main():
                 else:
                     sys.stderr.write("Error: Non valid input\n")
 
-
-
-    print 'Finished reading input'
-
-    # return exit code 0 on successful termination
     sys.exit(0)
+
+
 
 if __name__ == '__main__':
     main()
