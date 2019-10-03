@@ -258,15 +258,17 @@ class Graph:
 
         print("V = {")
         for v in self.vrtx_lst.keys():
-            print("%s : (%.2f,%.2f)" % (v, self.vrtx_lst.get(v)[0], self.vrtx_lst.get(v)[1]))
+            print("  %s:  (%.2f,%.2f)" % (v, self.vrtx_lst.get(v)[0], self.vrtx_lst.get(v)[1]))
         print("}")
 
         print("E = {")
-        for key,e in self.edg_lst.items():
-            if e != None:
-                print("<%s,%s>,"%(e[0],e[1]))
-            else:
+        for key, e in self.edg_lst.items():
+            if e == None:
                 break
+            elif key == self.edg_lst.keys()[-1]:
+                print("  <%s,%s>" % (e[0], e[1]))
+            else:
+                print("  <%s,%s>," % (e[0], e[1]))
         print("}")
 
 
